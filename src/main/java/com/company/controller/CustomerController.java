@@ -26,13 +26,10 @@ public class CustomerController {
 	private CustomerService customerService;
 	
 	@Autowired
-	LinkService linkService;
+	private LinkService linkService;
 	
 	@Autowired
     private PasswordEncoder passwordEncoder;
-	
-	@Autowired
-	private Link linkObj;
 	
     @RequestMapping("/")
     public String mainPage(Model model){
@@ -45,8 +42,7 @@ public class CustomerController {
         model.addAttribute("login", login);
         model.addAttribute("shortLink", customer.getLink());
         model.addAttribute("links", links);
-        model.addAttribute("counts", linkObj.getCount());
-        
+
         return "index";
     }
     
@@ -69,6 +65,7 @@ public class CustomerController {
     @RequestMapping(value = "/addlink", method = RequestMethod.POST)
     public String addLinks(@RequestParam String link) {
 
+        Link linkObj = new Link();
     	linkObj.setLink(link);
     	
     	linkService.addLink(linkObj);

@@ -1,15 +1,12 @@
 package com.company.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.springframework.stereotype.Component;
-
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Component
 @Entity
 @Data @NoArgsConstructor
 public class Link {
